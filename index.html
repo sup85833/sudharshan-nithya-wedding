@@ -59,12 +59,36 @@ section{padding:clamp(65px,8vw,100px) 18px}
 .music{background:#172b46;border:1px solid #d7b878;box-shadow:0 12px 32px #172b4640}
 .music.playing{background:#bd9657;color:#172b46}
 @media(max-width:620px){.hero-card{padding:34px 20px}.couple-art{width:100%}.event{padding:36px 18px}body:after{inset:6px}}
+
+/* Full portrait treatment — prevent the narrow-strip crop */
+.couple-art{width:min(680px,100%)!important;height:auto!important;min-height:0!important;max-height:none!important;aspect-ratio:4/3;object-fit:contain!important;object-position:center!important;overflow:visible!important;border-radius:18px;display:block;margin:32px auto 24px;box-shadow:0 22px 65px #172b4622;animation:portraitBreath 6s ease-in-out infinite}
+@keyframes portraitBreath{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-7px) scale(1.012)}}
+.hero-card{overflow:visible}
+.hero{overflow:hidden}
+.petals{position:fixed;inset:0;pointer-events:none;z-index:4;overflow:hidden}
+.petal{position:absolute;top:-12vh;left:var(--x);font-size:var(--s);color:var(--c);opacity:.72;animation:petalFall var(--t) linear infinite;animation-delay:var(--d)}
+@keyframes petalFall{0%{transform:translate3d(0,-10vh,0) rotate(0deg);opacity:0}12%{opacity:.8}85%{opacity:.65}100%{transform:translate3d(var(--drift),115vh,0) rotate(620deg);opacity:0}}
+.hero-card{animation:heroReveal 1.2s cubic-bezier(.2,.8,.2,1) both}
+@keyframes heroReveal{from{opacity:0;transform:translateY(35px) scale(.97);filter:blur(6px)}to{opacity:1;transform:none;filter:blur(0)}}
+.script{animation:scriptReveal 1.5s .2s both}
+h1{animation:scriptReveal 1.5s .4s both}
+@keyframes scriptReveal{from{opacity:0;letter-spacing:.16em;transform:translateY(15px)}to{opacity:1;letter-spacing:normal;transform:none}}
+.event{transition:transform .5s ease,box-shadow .5s ease}
+.event:hover{transform:translateY(-9px);box-shadow:0 24px 55px #172b4628}
+.event:after{content:"✦";display:block;color:var(--gold);font-size:22px;margin-top:18px;animation:heartFloat 2.4s ease-in-out infinite}
+.venue-wrap{background-size:200% 200%;animation:venueGlow 14s ease infinite}
+@keyframes venueGlow{0%,100%{background-position:0 50%}50%{background-position:100% 50%}}
+.music{right:50%;transform:translateX(50%);bottom:18px;width:auto;min-width:220px;height:auto;border-radius:40px;padding:16px 24px;font-size:12px;letter-spacing:.1em;box-shadow:0 12px 34px #172b4650;animation:musicPulse 2.6s ease-in-out infinite}
+@keyframes musicPulse{0%,100%{box-shadow:0 12px 34px #172b4640}50%{box-shadow:0 12px 42px #bd965780}}
+.music.playing{animation:none}
+.music:before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:#e7c98f;margin-right:10px;vertical-align:middle}
+@media(max-width:620px){.couple-art{width:100%!important;height:auto!important;aspect-ratio:4/3;object-fit:contain!important}.music{bottom:12px;min-width:205px;padding:14px 20px}}
 </style></head><body>
-<header class="hero"><div class="hero-card">
+<div class="petals" aria-hidden="true"><i class="petal" style="--x:7%;--s:22px;--c:#bd9657;--t:16s;--d:-2s;--drift:35px">✿</i><i class="petal" style="--x:24%;--s:16px;--c:#d59b9b;--t:19s;--d:-9s;--drift:-25px">✧</i><i class="petal" style="--x:46%;--s:19px;--c:#bd9657;--t:17s;--d:-5s;--drift:40px">❀</i><i class="petal" style="--x:69%;--s:18px;--c:#d59b9b;--t:21s;--d:-12s;--drift:-30px">✿</i><i class="petal" style="--x:88%;--s:23px;--c:#bd9657;--t:18s;--d:-7s;--drift:22px">✧</i></div><header class="hero"><div class="hero-card">
 <div class="eyebrow">Together with our families</div>
 <div class="script">A beautiful beginning</div>
 <h1>Sudharshan <span class="heart">♥</span><br>Nithya</h1><img class="couple-art" src="couple-3d.gif" alt="3D animated portrait of the bride and groom, based on their shared wedding photo">
-<div class="tagline">invite you to share in the joy of their wedding</div>
+<div class="tagline">invite you to share in the joy of their wedding</div><div class="ornament">♡ &nbsp; two souls, one beautiful story &nbsp; ♡</div>
 <div class="ornament">✧ ❀ ✧</div>
 <p class="message">Two hearts, one promise, and a lifetime of little moments. Your presence will make our celebration truly special.</p>
 <div class="hero-date">3 &amp; 4 December 2026 · Tirupati</div>
@@ -73,8 +97,8 @@ section{padding:clamp(65px,8vw,100px) 18px}
 <section id="celebration"><div class="section-inner">
 <div class="section-label">Please join us</div><h2 class="section-title">The Wedding Celebrations</h2>
 <div class="events">
-<article class="event"><div class="kind">An evening of joy</div><h3>Wedding Reception</h3><div class="date">Thursday · 3 December 2026</div><div class="time">7:00 PM onwards</div></article>
-<article class="event"><div class="kind">The sacred moment</div><h3>Muhurtham</h3><div class="date">Friday · 4 December 2026</div><div class="time">3:30 AM – 4:30 AM</div></article>
+<article class="event"><div class="kind">✧ An evening of joy ✧</div><h3>Wedding Reception</h3><div class="date">Thursday · 3 December 2026</div><div class="time">7:00 PM onwards</div></article>
+<article class="event"><div class="kind">✧ The sacred moment ✧</div><h3>Muhurtham</h3><div class="date">Friday · 4 December 2026</div><div class="time">3:30 AM – 4:30 AM</div></article>
 </div></div></section>
 <section class="venue-wrap"><div class="section-inner">
 <div class="section-label">Where we celebrate</div><h2 class="section-title">The Venue</h2>
@@ -82,7 +106,7 @@ section{padding:clamp(65px,8vw,100px) 18px}
 <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=SR+Convention+Hall+Tirupati" target="_blank" rel="noopener">Open directions ↗</a>
 </div></section>
 <section><div class="section-inner"><div class="section-label">The countdown to forever</div><h2 class="section-title">A day to remember</h2><div class="countdown" id="countdown">Loading…</div></div></section>
-<footer class="closing"><div class="ornament">✧ ❀ ✧</div><div class="script">With love,</div><h2 class="section-title" style="margin:0">Sudharshan &amp; Nithya</h2><p>We can't wait to celebrate with you.</p></footer>
+<section class="story"><div class="section-inner"><div class="section-label">A little forever begins</div><h2 class="section-title">Made for each other</h2><p class="message">From a thousand little moments to one unforgettable promise — join us as our next chapter begins.</p><img class="couple-art" src="couple-3d.gif" alt="Animated 3D wedding couple portrait"></div></section><footer class="closing"><div class="ornament">✧ ❀ ✧</div><div class="script">With love,</div><h2 class="section-title" style="margin:0">Sudharshan &amp; Nithya</h2><p>We can't wait to celebrate with you.</p></footer>
 <audio id="weddingAudio" preload="auto" loop><source src="WhatsApp%20Video%202026-09-08%20at%2011.55.52.mp4" type="audio/mp4"></audio><button class="music" id="music" type="button" aria-label="Play wedding song" aria-pressed="false">♫ &nbsp; Play our song</button>
 <script>
 const target=new Date('2026-12-04T03:30:00+05:30').getTime(),count=document.getElementById('countdown');
@@ -90,6 +114,9 @@ function tick(){let t=Math.max(0,target-Date.now()),d=Math.floor(t/86400000);t%=
 // The original uploaded wedding video is the soundtrack source.
 const audio=document.getElementById('weddingAudio'),musicBtn=document.getElementById('music');
 audio.load();
+// Attempt sound on arrival; browsers may block audible autoplay until a visitor gesture.
+const arrivalPlay=audio.play(); if(arrivalPlay&&typeof arrivalPlay.catch==="function"){arrivalPlay.catch(()=>{musicBtn.textContent="♫  Tap anywhere to play our song";});}
+document.addEventListener("pointerdown",()=>{if(audio.paused)startWeddingSong();},{once:true});
 async function startWeddingSong(){
   try{
     await audio.play();
